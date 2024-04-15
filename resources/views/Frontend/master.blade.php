@@ -25,10 +25,11 @@
     <link href="{{ asset('Frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('Frontend/assets/vendor/aos/aos.css') }}" rel="stylesheet">
     <link href="{{ asset('Frontend/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('Frontend/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('Frontend/assets/css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <!-- =======================================================
   * Template Name: Impact
@@ -38,6 +39,31 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+
+<style>
+    .topbar {
+        background: #000000;
+
+    }
+
+    .header {
+        background: #000000 !important;
+    }
+
+    .hero {
+        background: #000000 !important
+    }
+
+    .icon-box {
+        background: #361446 !important;
+    }
+
+    .footer {
+       
+        background: #000000 !important
+        
+    }
+</style>
 
 <body>
 
@@ -50,7 +76,7 @@
     <main id="main">
 
         @yield('main')
-       
+
 
     </main><!-- End #main -->
 
@@ -137,10 +163,11 @@
     <script src="{{ asset('Frontend/assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('Frontend/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('Frontend/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-    <script src="{{ asset('Frontend/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+
     <script src="{{ asset('Frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('Frontend/assets/vendor/php-email-form/validate.js') }}"></script>
     <script src="{{ asset('Frontend/assets/js/main.js') }}"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </body>
 

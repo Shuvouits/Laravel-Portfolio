@@ -1,6 +1,19 @@
 @extends('Frontend.master')
 @section('main')
 
-<h1>Hello Main</h1>
+<br>
+<br>
+@include('Frontend.home.service')
+
+<br>
+<br>
+@include('Frontend.home.client')
+
+<br>
+<br>
+@include('Frontend.home.portfolio')
+<br>
+<br>
+@include('Frontend.home.faq')
 
 @endsection
