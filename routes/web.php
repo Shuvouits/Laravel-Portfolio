@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/admin/logout', [AuthController::class, 'Logout']);
+    Route::get('/admin/hero', [AdminController::class, 'Hero']);
+    Route::post('/admin/add-hero', [AdminController::class, 'AddHero']);
+    Route::post('/admin/update-hero', [AdminController::class, 'UpdateHero']);
 });
 
 
