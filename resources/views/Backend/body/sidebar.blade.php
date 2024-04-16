@@ -27,6 +27,16 @@
             </a>
            
         </li>
+
+        <li>
+            <a href="/admin/icon-box">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Icon Box</div>
+            </a>
+           
+        </li>
+
         
     
     </ul>

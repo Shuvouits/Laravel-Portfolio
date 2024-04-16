@@ -35,6 +35,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/add-hero', [AdminController::class, 'AddHero']);
     Route::post('/admin/update-hero', [AdminController::class, 'UpdateHero']);
     Route::delete('/admin/delete-hero/{id}', [AdminController::class, 'DeleteHero']);
+
+
+
+    Route::get('/admin/icon-box', [AdminController::class, 'IconBox']);
+    Route::post('/admin/add-iconbox', [AdminController::class, 'AddIconBox']);
+    Route::post('/admin/update-iconbox', [AdminController::class, 'UpdateIconBox']);
+    Route::delete('/admin/delete-iconbox/{id}', [AdminController::class, 'DeleteIconBox']);
 });
 
 
