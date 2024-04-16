@@ -31,6 +31,7 @@
     <link href="{{ asset('Frontend/assets/css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
+
     <!-- =======================================================
   * Template Name: Impact
   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
@@ -168,6 +169,10 @@
     <script src="{{ asset('Frontend/assets/vendor/php-email-form/validate.js') }}"></script>
     <script src="{{ asset('Frontend/assets/js/main.js') }}"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+   
+
+
 
 </body>
 

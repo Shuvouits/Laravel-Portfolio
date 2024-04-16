@@ -37,6 +37,15 @@
            
         </li>
 
+        <li>
+            <a href="/admin/work-experience">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Work Experience</div>
+            </a>
+           
+        </li>
+
         
     
     </ul>

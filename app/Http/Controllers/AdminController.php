@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Experience;
 use App\Models\IconBox;
 use Illuminate\Http\Request;
 use App\Models\Hero;
@@ -138,6 +139,58 @@ class AdminController extends Controller
     public function DeleteIconBox($id)
     {
         $item = IconBox::findOrFail($id);
+        $item->delete();
+        return response()->json(['success' => true]);
+    }
+
+    public function WorkExperience()
+    {
+        $data = Experience::all();
+        return view('Backend.page.work_experience', compact('data'));
+    }
+
+    public function AddExperience(Request $request){
+
+        Experience::create([
+            'company_name' => $request->company_name,
+            'designation' => $request->designation,
+            'date' => $request->date,
+            'responsiblity' => $request->responsiblity
+        ]);
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Inserted Successfully"
+        ]);
+
+    }
+
+    public function UpdateExperience(Request $request)
+    {
+
+        $id = $request->input('id');
+
+        Experience::findOrFail($id)->update([
+            'company_name' => $request->company_name,
+            'designation' => $request->designation,
+            'date' => $request->date,
+            'responsiblity' => $request->responsiblity
+        ]);
+
+
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Updated Successfully"
+        ]);
+
+
+
+    } 
+
+    public function DeleteExperience($id)
+    {
+        $item = Experience::findOrFail($id);
         $item->delete();
         return response()->json(['success' => true]);
     }

@@ -29,6 +29,10 @@
     <link href="{{ asset('Backend/assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('Backend/assets/css/header-colors.css') }}" rel="stylesheet" />
 
+    <link href="{{asset('flatpicker.css')}}" rel="stylesheet" />
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <!--plugins-->
 	<link href="{{asset('Backend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css')}}" rel="stylesheet" />
 
@@ -37,6 +41,8 @@
 
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
+
+   
 
     <title>Personal Portfolio</title>
 </head>
@@ -278,6 +284,82 @@
     <script src="{{ asset('Backend/assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    
+    $(".datepicker").flatpickr();
+
+    $(".time-picker").flatpickr({
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "Y-m-d H:i",
+        });
+
+    $(".date-time").flatpickr({
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+    });
+
+    $(".date-format").flatpickr({
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+    });
+
+    $(".date-range").flatpickr({
+        mode: "range",
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+    });
+
+    $(".date-inline").flatpickr({
+        inline: true,
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+    });
+
+</script>
+
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
+<script>
+    var quill = new Quill('#editor', {
+      theme: 'snow'
+    });
+
+    document.getElementById('experienceForm').onsubmit = function() {
+        var editorContent = document.querySelector('#editor .ql-editor').innerHTML;
+        document.getElementById('responsibility').value = editorContent;
+    };
+
+     
+
+
+  </script>
+
+<script>
+    var quillUpdate = new Quill('#editor-update', {
+      theme: 'snow'
+    });
+
+    document.getElementById('updateExperienceForm').onsubmit = function() {
+        var editorContent = document.querySelector('#editor-update .ql-editor').innerHTML;
+        document.getElementById('responsibilityUpdate').value = editorContent;
+    };
+
+     
+
+
+  </script>
+
+
+
+
     <script>
         $(function() {
             $(".knob").knob();
@@ -327,10 +409,6 @@
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );
 	</script>
-
-
-
-
 
 
 
