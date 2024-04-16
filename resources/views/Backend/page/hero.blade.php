@@ -1,6 +1,8 @@
 @extends('Backend.master')
 @section('main')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
     <div class="page-content">
         <!--breadcrumb-->
@@ -55,6 +57,8 @@
                                         <input type="file" class="form-control" id="avatar" name="avatar">
                                     </div>
                                     <br>
+
+                                    <div class="img-holder"></div>
 
                                     <button type="submit" class="btn btn-primary">Submit</button>
 
@@ -113,7 +117,7 @@
 
 
                                         </a>
-                                        <a href="/delete/banner/" class="btn btn-danger" id="delete"
+                                        <a href="#" class="btn btn-danger delete-item" data-id="{{ $item->id }}"
                                             style="margin-left: 15px">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -245,6 +249,44 @@
         } else {
             $(img_holder).empty();
         }
+    });
+</script>
+
+
+<script>
+    $(document).on('click', '.delete-item', function (e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this item!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: '/admin/delete-hero/' + id, // Update the URL to match your route
+                    type: 'DELETE',
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        swal("Poof! Your item has been deleted!", {
+                            icon: "success",
+                        });
+                        // Update the table after successful deletion
+                        window.location.reload();
+                    },
+                    error: function(xhr) {
+                        swal("Oops!", "Something went wrong!", "error");
+                    }
+                });
+            } else {
+                swal("Your item is safe!");
+            }
+        });
     });
 </script>
 

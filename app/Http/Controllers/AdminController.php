@@ -79,5 +79,12 @@ class AdminController extends Controller
 
 
     }
+
+    public function DeleteHero($id)
+   {
+    $item = Hero::findOrFail($id);
+    $item->delete();
+    return response()->json(['success' => true]);
+   }
     
 }
