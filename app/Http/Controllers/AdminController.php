@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Experience;
+use App\Models\FAQ;
 use App\Models\IconBox;
 use App\Models\Technology;
 use Illuminate\Http\Request;
@@ -276,6 +277,57 @@ class AdminController extends Controller
     public function DeleteTechnology($id)
     {
         $item = Technology::findOrFail($id);
+        $item->delete();
+        return response()->json(['success' => true]);
+    }  
+
+    public function FAQ()
+    {
+        $data = FAQ::all();
+        return view('Backend.page.faq', compact('data'));
+    } 
+    
+    
+    public function AddFAQ(Request $request){
+
+        FAQ::create([
+            'question' => $request->question,
+            'answer' => $request->answer,
+        ]);
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Inserted Successfully"
+        ]);
+
+    }  
+
+
+    public function UpdateFAQ(Request $request)
+    {
+
+        $id = $request->input('id');
+
+        FAQ::findOrFail($id)->update([
+            'question' => $request->question,
+            'answer' => $request->answer,
+        ]);
+
+
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Updated Successfully"
+        ]);
+
+
+
+    } 
+
+
+    public function DeleteFAQ($id)
+    {
+        $item = FAQ::findOrFail($id);
         $item->delete();
         return response()->json(['success' => true]);
     }  

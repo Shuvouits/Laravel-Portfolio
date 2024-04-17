@@ -52,6 +52,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/add-technology', [AdminController::class, 'AddTechnology']);
     Route::post('/admin/update-technology', [AdminController::class, 'UpdateTechnology']);
     Route::delete('/admin/delete-technology/{id}', [AdminController::class, 'DeleteTechnology']);
+
+    Route::get('/admin/faq', [AdminController::class, 'FAQ']);
+    Route::post('/admin/add-faq', [AdminController::class, 'AddFAQ']);
+    Route::post('/admin/update-faq', [AdminController::class, 'UpdateFAQ']);
+    Route::delete('/admin/delete-faq/{id}', [AdminController::class, 'DeleteFAQ']);
+
 });
 
 

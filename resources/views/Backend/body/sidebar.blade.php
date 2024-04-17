@@ -55,6 +55,15 @@
            
         </li>
 
+        <li>
+            <a href="/admin/faq">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">FAQ</div>
+            </a>
+           
+        </li>
+
         
     
     </ul>
