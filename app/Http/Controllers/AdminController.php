@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Experience;
 use App\Models\IconBox;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 use App\Models\Hero;
 use Image;
@@ -193,7 +194,92 @@ class AdminController extends Controller
         $item = Experience::findOrFail($id);
         $item->delete();
         return response()->json(['success' => true]);
-    }
+    }  
+
+
+    public function Technology()
+    {
+        $data = Technology::all();
+        return view('Backend.page.technology', compact('data'));
+    }  
+
+    public function AddTechnology(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
+        ]);
+
+        if ($request->file('avatar')->isValid()) {
+            $avatar = $request->file('avatar')->getClientOriginalName();
+            $request->file('avatar')->move(public_path('upload'), $avatar);
+            $msg = "Image uploaded successfully";
+        } else {
+            $msg = "Failed to upload image";
+        }
+
+        Technology::create([
+            'name' => $request->name,
+           
+            'avatar' => $avatar,
+        ]);
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Inserted Successfully"
+        ]);
+    }  
+
+
+    public function UpdateTechnology(Request $request)
+    {
+
+        $id = $request->input('id');
+
+        if ($request->hasFile('avatar')) {
+            $request->validate([
+                'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
+            ]);
+
+            if ($request->file('avatar')->isValid()) {
+                $avatar = $request->file('avatar')->getClientOriginalName();
+                $request->file('avatar')->move(public_path('upload'), $avatar);
+                $msg = "Image uploaded successfully";
+            } else {
+                $msg = "Failed to upload image";
+            }
+
+            Technology::findOrFail($id)->update([
+                'name' => $request->name,
+                'avatar' => $avatar
+            ]);
+
+
+        } else {
+            Technology::findOrFail($id)->update([
+                'name' => $request->name,
+                
+            ]);
+        }
+
+
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Updated Successfully"
+        ]);
+
+
+
+    }  
+
+
+    public function DeleteTechnology($id)
+    {
+        $item = Technology::findOrFail($id);
+        $item->delete();
+        return response()->json(['success' => true]);
+    }  
+
 
 
 

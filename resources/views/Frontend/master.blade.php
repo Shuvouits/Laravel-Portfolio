@@ -43,16 +43,16 @@
 
 <style>
     .topbar {
-        background: #000000;
+        background: #2d113b;
 
     }
 
     .header {
-        background: #000000 !important;
+        background: #2d113b !important;
     }
 
     .hero {
-        background: #000000 !important
+        background: #2d113b !important
     }
 
     .icon-box {
@@ -61,9 +61,22 @@
 
     .footer {
        
-        background: #000000 !important
+        background: #361446 !important
         
     }
+
+    @media (max-width: 1279px){
+
+        .navbar ul {
+    
+    background: #361446 !important;
+    
+}
+
+    }
+
+
+
 </style>
 
 <body>

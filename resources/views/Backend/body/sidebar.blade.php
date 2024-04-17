@@ -12,7 +12,7 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="javascript:;">
+            <a href="/dashboard">
                 <div class="parent-icon"><i class='bx bx-home-alt'></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
@@ -42,6 +42,15 @@
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
                 <div class="menu-title">Work Experience</div>
+            </a>
+           
+        </li>
+
+        <li>
+            <a href="/admin/technology">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Technology</div>
             </a>
            
         </li>
