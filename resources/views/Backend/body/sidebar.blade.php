@@ -62,6 +62,25 @@
                 <div class="menu-title">FAQ</div>
             </a>
            
+        </li>  
+
+
+        <li>
+            <a href="/admin/stack">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">STACK</div>
+            </a>
+           
+        </li>
+
+        <li>
+            <a href="/admin/product">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Product</div>
+            </a>
+           
         </li>
 
         

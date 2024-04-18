@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Experience;
 use App\Models\FAQ;
 use App\Models\IconBox;
+use App\Models\Product;
+use App\Models\Stack;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 use App\Models\Hero;
@@ -331,6 +333,148 @@ class AdminController extends Controller
         $item->delete();
         return response()->json(['success' => true]);
     }  
+
+    public function STACK()
+    {
+        $data = Stack::all();
+        return view('Backend.page.stack', compact('data'));
+    }  
+
+
+    public function AddStack(Request $request){
+
+        Stack::create([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Inserted Successfully"
+        ]);
+
+    }  
+
+
+    public function UpdateStack(Request $request)
+    {
+
+        $id = $request->input('id');
+
+        Stack::findOrFail($id)->update([
+            'name' => $request->name,
+        ]);
+
+
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Updated Successfully"
+        ]);
+
+
+
+    } 
+
+
+    public function DeleteStack($id)
+    {
+        $item = Stack::findOrFail($id);
+        $item->delete();
+        return response()->json(['success' => true]);
+    }  
+
+
+    public function Product()
+    {
+        $data = Product::all();
+        $stack = Stack::all();
+        return view('Backend.page.product', compact('data', 'stack'));
+    }  
+
+
+    public function AddProduct(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
+        ]);
+
+        if ($request->file('avatar')->isValid()) {
+            $avatar = $request->file('avatar')->getClientOriginalName();
+            $request->file('avatar')->move(public_path('upload'), $avatar);
+            $msg = "Image uploaded successfully";
+        } else {
+            $msg = "Failed to upload image";
+        }
+
+        Product::create([
+            'stack_id' => $request->stack_id,
+            'name' => $request->name,
+            'avatar' => $avatar,
+            'title' => $request->title
+        ]);
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Inserted Successfully"
+        ]);
+    }  
+
+
+
+    public function UpdateProduct(Request $request)
+    {
+
+        $id = $request->input('id');
+
+
+        if ($request->hasFile('avatar')) {
+            $request->validate([
+                'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
+            ]);
+
+            if ($request->file('avatar')->isValid()) {
+                $avatar = $request->file('avatar')->getClientOriginalName();
+                $request->file('avatar')->move(public_path('upload'), $avatar);
+                $msg = "Image uploaded successfully";
+            } else {
+                $msg = "Failed to upload image";
+            }
+
+            Product::findOrFail($id)->update([
+                'title' => $request->title,
+                'name' => $request->name,
+                'avatar' => $avatar,
+                'stack_id' => $request->stack_id
+            ]);
+
+
+        } else {
+            Product::findOrFail($id)->update([
+                'title' => $request->title,
+                'name' => $request->name,
+                'stack_id' => $request->stack_id
+            ]);
+        }
+
+
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Updated Successfully"
+        ]);
+
+
+
+    }
+
+
+    public function DeleteProduct($id)
+    {
+        $item = Product::findOrFail($id);
+        $item->delete();
+        return response()->json(['success' => true]);
+    }  
+
 
 
 

@@ -58,6 +58,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/update-faq', [AdminController::class, 'UpdateFAQ']);
     Route::delete('/admin/delete-faq/{id}', [AdminController::class, 'DeleteFAQ']);
 
+    Route::get('/admin/stack', [AdminController::class, 'STACK']);
+    Route::post('/admin/add-stack', [AdminController::class, 'AddStack']);
+    Route::post('/admin/update-stack', [AdminController::class, 'UpdateStack']);
+    Route::delete('/admin/delete-stack/{id}', [AdminController::class, 'DeleteStack']);
+
+    Route::get('/admin/product', [AdminController::class, 'Product']);
+    Route::post('/admin/add-product', [AdminController::class, 'AddProduct']);
+    Route::post('/admin/update-product', [AdminController::class, 'UpdateProduct']);
+    Route::delete('/admin/delete-product/{id}', [AdminController::class, 'DeleteProduct']);
+
+
 });
 
 
