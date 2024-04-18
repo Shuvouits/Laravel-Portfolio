@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Experience;
 use App\Models\FAQ;
+use App\Models\Gallery;
 use App\Models\IconBox;
 use App\Models\Product;
 use App\Models\Stack;
@@ -473,7 +474,97 @@ class AdminController extends Controller
         $item = Product::findOrFail($id);
         $item->delete();
         return response()->json(['success' => true]);
+    } 
+    
+    
+    public function ProductGallery()
+    {
+        $product = Product::all();
+        $data = Gallery::all();
+        return view('Backend.page.gallery', compact('product','data'));
     }  
+
+
+    public function AddProductGallery(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
+        ]);
+
+        if ($request->file('avatar')->isValid()) {
+            $avatar = $request->file('avatar')->getClientOriginalName();
+            $request->file('avatar')->move(public_path('upload'), $avatar);
+            $msg = "Image uploaded successfully";
+        } else {
+            $msg = "Failed to upload image";
+        }
+
+        Gallery::create([
+            'product_id' => $request->product_id,
+          
+            'avatar' => $avatar,
+        ]);
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Inserted Successfully"
+        ]);
+    }  
+
+
+
+    public function UpdateProductGallery(Request $request)
+    {
+
+        $id = $request->input('id');
+
+
+        if ($request->hasFile('avatar')) {
+            $request->validate([
+                'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
+            ]);
+
+            if ($request->file('avatar')->isValid()) {
+                $avatar = $request->file('avatar')->getClientOriginalName();
+                $request->file('avatar')->move(public_path('upload'), $avatar);
+                $msg = "Image uploaded successfully";
+            } else {
+                $msg = "Failed to upload image";
+            }
+
+            Gallery::findOrFail($id)->update([
+              
+                'avatar' => $avatar,
+                'product_id' => $request->product_id
+            ]);
+
+
+        } else {
+            Product::findOrFail($id)->update([
+                
+                'product_id' => $request->product_id
+            ]);
+        }
+
+
+
+        return redirect()->back()->with('message', [
+            'type' => 'success',
+            'text' => "Data Updated Successfully"
+        ]);
+
+
+
+    } 
+
+
+    public function DeleteProductGallery($id)
+    {
+        $item = Gallery::findOrFail($id);
+        $item->delete();
+        return response()->json(['success' => true]);
+    } 
+
 
 
 

@@ -83,6 +83,15 @@
            
         </li>
 
+        <li>
+            <a href="/admin/product/gallery">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Gallery</div>
+            </a>
+           
+        </li>
+
         
     
     </ul>

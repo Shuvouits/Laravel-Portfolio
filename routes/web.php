@@ -68,6 +68,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/update-product', [AdminController::class, 'UpdateProduct']);
     Route::delete('/admin/delete-product/{id}', [AdminController::class, 'DeleteProduct']);
 
+    Route::get('/admin/product/gallery', [AdminController::class, 'ProductGallery']);
+    Route::post('/admin/add-product-gallery', [AdminController::class, 'AddProductGallery']);
+    Route::post('/admin/update-product-gallery', [AdminController::class, 'UpdateProductGallery']);
+    Route::delete('/admin/delete-product-gallery/{id}', [AdminController::class, 'DeleteProductGallery']);
+
 
 });
 
