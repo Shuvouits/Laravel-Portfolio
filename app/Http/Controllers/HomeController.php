@@ -7,6 +7,7 @@ use App\Models\Experience;
 use App\Models\FAQ;
 use App\Models\Hero;
 use App\Models\IconBox;
+use App\Models\Product;
 use App\Models\Stack;
 use App\Models\Technology;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class HomeController extends Controller
         $technology = Technology::all();
         $stack = Stack::all();
         $faq = FAQ::all();
-        return view('Frontend.index', compact('hero','icon_data', 'experience_data', 'technology', 'stack', 'faq'));
+        $product = Product::all();
+        return view('Frontend.index', compact('hero','icon_data', 'experience_data', 'technology', 'stack', 'faq', 'product'));
     }
 
     public function NotFound(){
