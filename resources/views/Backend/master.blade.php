@@ -327,35 +327,11 @@
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 
-<script>
-    var quill = new Quill('#editor', {
-      theme: 'snow'
-    });
-
-    document.getElementById('experienceForm').onsubmit = function() {
-        var editorContent = document.querySelector('#editor .ql-editor').innerHTML;
-        document.getElementById('responsibility').value = editorContent;
-    };
-
-     
 
 
-  </script>
-
-<script>
-    var quillUpdate = new Quill('#editor-update', {
-      theme: 'snow'
-    });
-
-    document.getElementById('updateExperienceForm').onsubmit = function() {
-        var editorContent = document.querySelector('#editor-update .ql-editor').innerHTML;
-        document.getElementById('responsibilityUpdate').value = editorContent;
-    };
-
-     
 
 
-  </script>
+
 
 
 

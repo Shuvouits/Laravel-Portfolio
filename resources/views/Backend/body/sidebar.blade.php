@@ -92,6 +92,15 @@
            
         </li>
 
+        <li>
+            <a href="/admin/contact">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Contact</div>
+            </a>
+           
+        </li>
+
         
     
     </ul>

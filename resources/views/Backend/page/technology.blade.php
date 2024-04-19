@@ -35,7 +35,7 @@
 
                             <div class="modal-body">
 
-                                <form method="POST" action="/admin/add-technology" enctype="multipart/form-data">
+                                <form method="POST" action="/admin/add-technology" >
                                     {{ @csrf_field() }}
 
                                     <div class="col-12">
@@ -45,14 +45,15 @@
                                     </div>
                                     <br>
 
-
                                     <div class="col-12">
-                                        <label for="avatar" class="form-label">Avatar</label>
-                                        <input type="file" class="form-control" id="avatar" name="avatar">
+                                        <label for="icon" class="form-label">Svg Icon</label>
+                                        <input type="text" class="form-control" name="icon" id="icon"
+                                            placeholder="Svg Icon">
                                     </div>
                                     <br>
 
-                                    <div class="img-holder"></div>
+
+                                    
 
                                     <button type="submit" class="btn btn-primary">Submit</button>
 
@@ -94,7 +95,7 @@
                                     <td>{{ $item->name }}</td>
                                     
                                     <td>
-                                        <img src="{{ asset('upload/' . $item->avatar) }}" width="70" height="70" />
+                                        {!! $item->icon !!}
 
                                     </td>
                                     <td>
@@ -139,7 +140,7 @@
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Insert Data</h5>
+                                                <h5 class="modal-title">Update Data</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
@@ -158,23 +159,22 @@
                                                             name="name" value="{{$item->name}}" id="technology"
                                                             >
                                                     </div>
+                                                    <br>  
+
+
+                                                    <div class="col-12">
+                                                        <label for="icon" class="form-label">Svg Icon</label>
+                                                        <input type="text" class="form-control"
+                                                            name="icon" value="{{$item->icon}}" id="icon"
+                                                            >
+                                                    </div>
                                                     <br>
 
                                                    
 
-                                                    <br>
+                                                    
 
-                                                    <div class="col-12">
-                                                        <label for="avatar"
-                                                            class="form-label">Avatar</label>
-                                                            <input type="file" class="form-control" id="avatar" name="avatar">
-                                                            <br>
-
-                                                            <img class="avatarPreview" src="{{ asset('upload/' . $item->avatar) }}" alt="Preview" width="100" height="100">
-
-                                                            <div class="img-holder"></div>
-                                                    </div>
-                                                    <br>
+                                                    
 
                                                     <button type="submit"
                                                         class="btn btn-primary">Submit</button>

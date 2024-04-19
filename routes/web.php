@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -16,9 +17,16 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('Frontend.index');
-});
+
+
+Route::get('/', [HomeController::class, 'Home']);
+
+Route::post('/contact', [HomeController::class, 'Contact']);
+
+//Route::any('/*', [HomeController::class, 'NotFound']);
+
+
+Route::fallback([HomeController::class, 'NotFound']);
 
 
 Route::get('/dashboard', function () {
@@ -48,6 +56,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/update-experience', [AdminController::class, 'UpdateExperience']);
     Route::delete('/admin/delete-experience/{id}', [AdminController::class, 'DeleteExperience']);
 
+    Route::get('/admin/edit/experience/{id}', [AdminController::class, 'editExperience']);
+
     Route::get('/admin/technology', [AdminController::class, 'Technology']);
     Route::post('/admin/add-technology', [AdminController::class, 'AddTechnology']);
     Route::post('/admin/update-technology', [AdminController::class, 'UpdateTechnology']);
@@ -72,6 +82,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/add-product-gallery', [AdminController::class, 'AddProductGallery']);
     Route::post('/admin/update-product-gallery', [AdminController::class, 'UpdateProductGallery']);
     Route::delete('/admin/delete-product-gallery/{id}', [AdminController::class, 'DeleteProductGallery']);
+
+    Route::get('/admin/contact', [AdminController::class, 'Contact']);
+    Route::delete('/admin/delete-contact/{id}', [AdminController::class, 'DeleteContact']);
 
 
 });

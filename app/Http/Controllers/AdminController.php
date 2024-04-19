@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Experience;
 use App\Models\FAQ;
 use App\Models\Gallery;
@@ -184,7 +185,7 @@ class AdminController extends Controller
 
 
 
-        return redirect()->back()->with('message', [
+        return redirect('/admin/work-experience')->with('message', [
             'type' => 'success',
             'text' => "Data Updated Successfully"
         ]);
@@ -192,6 +193,11 @@ class AdminController extends Controller
 
 
     } 
+
+    public function EditExperience(Request $request, $id){
+        $data = Experience::find($id);
+        return view('Backend.page.edit_experience', compact('data') );
+    }
 
     public function DeleteExperience($id)
     {
@@ -209,22 +215,11 @@ class AdminController extends Controller
 
     public function AddTechnology(Request $request)
     {
-        $request->validate([
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
-        ]);
-
-        if ($request->file('avatar')->isValid()) {
-            $avatar = $request->file('avatar')->getClientOriginalName();
-            $request->file('avatar')->move(public_path('upload'), $avatar);
-            $msg = "Image uploaded successfully";
-        } else {
-            $msg = "Failed to upload image";
-        }
+        
 
         Technology::create([
             'name' => $request->name,
-           
-            'avatar' => $avatar,
+            'icon' => $request->icon,
         ]);
 
         return redirect()->back()->with('message', [
@@ -239,31 +234,12 @@ class AdminController extends Controller
 
         $id = $request->input('id');
 
-        if ($request->hasFile('avatar')) {
-            $request->validate([
-                'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
-            ]);
-
-            if ($request->file('avatar')->isValid()) {
-                $avatar = $request->file('avatar')->getClientOriginalName();
-                $request->file('avatar')->move(public_path('upload'), $avatar);
-                $msg = "Image uploaded successfully";
-            } else {
-                $msg = "Failed to upload image";
-            }
-
+    
             Technology::findOrFail($id)->update([
                 'name' => $request->name,
-                'avatar' => $avatar
-            ]);
-
-
-        } else {
-            Technology::findOrFail($id)->update([
-                'name' => $request->name,
+                'icon' => $request->icon
                 
             ]);
-        }
 
 
 
@@ -561,6 +537,22 @@ class AdminController extends Controller
     public function DeleteProductGallery($id)
     {
         $item = Gallery::findOrFail($id);
+        $item->delete();
+        return response()->json(['success' => true]);
+    } 
+
+
+    public function Contact()
+    {
+        
+        $data = Contact::all();
+        return view('Backend.page.contact', compact('data'));
+    } 
+
+
+    public function DeleteContact($id)
+    {
+        $item = Contact::findOrFail($id);
         $item->delete();
         return response()->json(['success' => true]);
     } 

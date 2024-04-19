@@ -2,12 +2,14 @@
 @section('main')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
 
 
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
             <div class="breadcrumb-title pe-3">All Experience</div>
+            
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
@@ -22,6 +24,8 @@
                     <a href="/add/banner" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#exampleVerticallycenteredModal">Add Experience</a>
                 </div>
+
+            
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
@@ -59,17 +63,11 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <h6 class="mb-0 text-uppercase">Add Responsiblity</h6>
-                                        <hr />
-                                        <div id="editor">
-
-                                        </div>
+                                        <label class="form-label">Add Responsiblity</label>
+                                        <textarea row="6" class="form-control" name="responsiblity" id="editor"></textarea>
                                     </div>
 
-                                    <!-- Hidden input field to store Quill editor content -->
-                                    <input type="hidden" name="responsiblity" id="responsibility">
-
-
+                                   
 
 
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -129,8 +127,8 @@
                                     <td>{!! $item->responsiblity !!}</td>
 
                                     <td>
-                                        <a href="/edit/hero/{{ $item->id }}" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#editModal{{ $item->id }}">
+                                        <a href="/admin/edit/experience/{{ $item->id }}" class="btn btn-info"
+                                            >
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -164,72 +162,7 @@
 
                                 </tr>
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Update Data</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-
-                                            <div class="modal-body">
-
-                                                <form method="POST" action="/admin/update-experience" id="updateExperienceForm">
-                                                    {{ @csrf_field() }}
-
-                                                    <input type="hidden" name="id" value="{{ $item->id }}" />
-
-                                                    <div class="col-12">
-                                                        <label for="cname" class="form-label">Company Name</label>
-                                                        <input type="text" class="form-control" name="company_name" id="cname"
-                                                            value="{{$item->company_name}}">
-                                                    </div>
-                                                    <br>
-                
-                                                    <div class="col-12">
-                                                        <label for="designation" class="form-label">Designation</label>
-                                                        <input type="text" class="form-control" name="designation" id="designation"
-                                                            value="{{$item->designation}}">
-                                                    </div>
-                
-                                                    <br>
-                
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Date Range</label>
-                                                        <input type="text" name="date" class="form-control date-range" value="{{$item->date}}"/>
-                                                    </div>
-                
-                                                    <div class="mb-3">
-                                                        <h6 class="mb-0 text-uppercase">Update Responsiblity</h6>
-                                                        <hr />
-                                                        <div id="editor-update">
-                                                           {!! $item->responsiblity !!}
-                                                        </div>
-                                                    </div>
-                
-                                                    <!-- Hidden input field to store Quill editor content -->
-                                                    <input type="hidden" name="responsiblity" id="responsibilityUpdate" value="{{$item->responsiblity}}">
-                
-
-                                                   
-
-                                                    <button type="submit" class="btn btn-primary">Update</button>
-
-                                                </form>
-
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             @endforeach
 
                         </tbody>
@@ -242,6 +175,28 @@
 
 
     </div>
+
+    
+
+    
+
+    
+
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+</script>
+
+
+
+
+
 
 
 

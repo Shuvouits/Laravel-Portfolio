@@ -3,11 +3,11 @@
 
 <br>
 <br>
-@include('Frontend.home.service')
+@include('Frontend.home.experience')
 
 <br>
 <br>
-@include('Frontend.home.client')
+@include('Frontend.home.technology')
 
 <br>
 <br>
@@ -15,5 +15,12 @@
 <br>
 <br>
 @include('Frontend.home.faq')
+
+<br>
+<br>
+@include('Frontend.home.contact')
+
+<br>
+<br>
 
 @endsection

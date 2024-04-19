@@ -25,7 +25,7 @@
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Insert Data</h5>
@@ -92,7 +92,7 @@
                                 <tr>
                                     <td>{{$index+1}}</td>
                                     <td>{{ $item->question }}</td>
-                                    <td>{{$item->answer}}</td>
+                                    <td>{{ \Illuminate\Support\Str::limit($item->answer, 50) }} </td>
                                     
                                     
                                     <td>
@@ -134,7 +134,7 @@
                                 <!-- Modal -->
                                 <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1"
                                     aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Update FAQ</h5>
