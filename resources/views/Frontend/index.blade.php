@@ -1,7 +1,11 @@
 @extends('Frontend.master')
 @section('main')
 
-<br>
+@include('Frontend.body.hero')
+
+<main id="main">
+
+    <br>
 <br>
 @include('Frontend.home.experience')
 
@@ -22,5 +26,9 @@
 
 <br>
 <br>
+
+</main>
+
+
 
 @endsection

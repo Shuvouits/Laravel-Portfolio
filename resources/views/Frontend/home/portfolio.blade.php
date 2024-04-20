@@ -33,15 +33,23 @@
                 @foreach ($product as $data)
                     <div class="col-xl-4 col-md-6 portfolio-item filter-{{$data->stack_id}}">
                         <div class="portfolio-wrap">
+
+                            
+                         
                             <a href="{{ asset('upload/' .$data->avatar) }}"
                                 data-gallery="portfolio-gallery-app-{{$data->stack_id}}" class="glightbox">
                                 <img src="{{ 'upload/' .$data->avatar }}" class="img-fluid"
                                     alt=""  style="height: 300px">
                             </a>
+
                             <div class="portfolio-info">
-                                <h4><a href="portfolio-details.html" title="More Details">{{$data->name}}</a></h4>
+                                <h4><a href="/project-screenview/{{$data->id}}" title="More Details">{{$data->name}}</a></h4>
                                 <p style="text-transform: capitalize">{{$data->title}}</p>
                             </div>
+
+                           
+                            
+                           
                         </div>
                     </div><!-- End Portfolio Item -->
                 @endforeach

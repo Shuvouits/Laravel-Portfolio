@@ -22,6 +22,8 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [HomeController::class, 'Home']);
 
 Route::post('/contact', [HomeController::class, 'Contact']);
+Route::get('/project-screenview/{id}', [HomeController::class, 'ProjectDetails']);
+Route::get('/download-cv', [HomeController::class, 'Download']);
 
 //Route::any('/*', [HomeController::class, 'NotFound']);
 

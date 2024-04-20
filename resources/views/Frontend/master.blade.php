@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Shuvo Bhowmik Portfolio</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Full Stack Web Developer Portfolio: Showcasing Innovation and Expertise | Shuvo Bhowmik</title>
+    <meta content="Explore the dynamic portfolio of a full stack web developer, showcasing innovation, expertise, and a passion for crafting cutting-edge web applications" name="description">
+    <meta content="Full stack web developer, portfolio, web applications, innovation, expertise" name="keywords">
 
     <!-- Favicons -->
     <link href="{{ asset('Frontend/assets/img/favicon.png') }}" rel="icon">
@@ -82,6 +82,12 @@
 
     }
 
+    .breadcrumbs .page-header {
+
+        background: #2d113b;
+
+    }
+
     .footer {
 
         background: #361446 !important
@@ -105,14 +111,10 @@
 
     @include('Frontend.body.header')
 
-    @include('Frontend.body.hero')
-
-    <main id="main">
-
+    <div>
         @yield('main')
+    </div>
 
-
-    </main><!-- End #main -->
 
 
     <!-- ======= Footer ======= -->

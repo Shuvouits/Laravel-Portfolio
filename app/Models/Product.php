@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Stack;
+use App\Models\Gallery;
 
 
 class Product extends Model
@@ -14,5 +15,6 @@ class Product extends Model
 
     public function stack(){
         return $this->belongsTo(Stack::class, 'stack_id', 'id');
-    } 
+    }
+
 }

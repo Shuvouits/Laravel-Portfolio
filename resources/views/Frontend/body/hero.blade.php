@@ -6,19 +6,32 @@
                  class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
                  <h2>Hi there! I'm<span> Shuvo Bhowmik</span></h2>
                  <p style="font-size : 20px">
-                    {{$hero->description}}
+                     {{ $hero->description }}
                  </p>
                  <div class="d-flex justify-content-center justify-content-lg-start">
-                     <a href="#" class="btn-get-started">
-                        
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                        Download CV
+                     <a href="/download-cv" class="btn-get-started">
+
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-download">
+                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                             <polyline points="7 10 12 15 17 10"></polyline>
+                             <line x1="12" y1="15" x2="12" y2="3"></line>
+                         </svg>
+                         Download CV
                      </a>
 
-                     <a style="margin-left: 15px" href="https://github.com/Shuvouits?tab=repositories" class="btn-get-started">
-                        
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                     Check Github
+                     <a style="margin-left: 15px" href="https://github.com/Shuvouits?tab=repositories"
+                         class="btn-get-started">
+
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-github">
+                             <path
+                                 d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                             </path>
+                         </svg>
+                         Check Github
 
                      </a>
 
@@ -28,8 +41,8 @@
                  </div>
              </div>
              <div class="col-lg-6 order-1 order-lg-2">
-                 <img src="{{ asset('upload/' .$hero->avatar) }}"
-                     style="width: 500px; height : 500px; border-radius: 250px" class="img-fluid" alt=""
+                 <img src="{{ asset('upload/' . $hero->avatar) }}"
+                     style="width: 400px; height : 400px; border-radius: 200px" class="img-fluid" alt=""
                      data-aos="zoom-out" data-aos-delay="100">
              </div>
          </div>
@@ -39,23 +52,21 @@
          <div class="container position-relative">
              <div class="row gy-4 mt-5">
 
-                @foreach($icon_data as $data)
+                 @foreach ($icon_data as $data)
+                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                         <div class="icon-box">
+                             <div class="icon">
 
-                 <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                     <div class="icon-box">
-                         <div class="icon">
+                                 {!! $data->icon !!}
 
-                            {!! $data->icon !!}
-
+                             </div>
+                             <h4 class="title"><a href="#" class="stretched-link">{{ $data->title }}</a>
+                             </h4>
                          </div>
-                         <h4 class="title"><a href="#" class="stretched-link">{{$data->title}}</a>
-                         </h4>
-                     </div>
-                 </div><!--End Icon Box -->
-
+                     </div><!--End Icon Box -->
                  @endforeach
 
-                
+
 
              </div>
          </div>

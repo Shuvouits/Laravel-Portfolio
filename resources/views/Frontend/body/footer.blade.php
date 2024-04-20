@@ -42,9 +42,7 @@
             <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                 <h4>Contact Us</h4>
                 <p>
-                    Luxmibazar <br>
-                    Sutrapur<br>
-                    Dhaka <br><br>
+                    Luxmibazar - Sutrapur - Dhaka - Bangladesh
                     <strong>Phone:</strong> +88 01751720590<br>
                     <strong>Email:</strong> shuvobhowmik_cse11uits@yahoo.com<br>
                 </p>
