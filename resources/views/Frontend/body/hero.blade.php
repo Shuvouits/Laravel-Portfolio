@@ -8,7 +8,7 @@
                  <p style="font-size : 20px">
                      {{ $hero->description }}
                  </p>
-                 <div class="d-flex justify-content-center justify-content-lg-start">
+                 <div class="d-flex cv-button justify-content-center justify-content-lg-start">
                      <a href="/download-cv" class="btn-get-started">
 
                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -40,9 +40,9 @@
                              class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
                  </div>
              </div>
-             <div class="col-lg-6 order-1 order-lg-2">
+             <div class="col-lg-6  order-1 order-lg-2 ">
                  <img src="{{ asset('upload/' . $hero->avatar) }}"
-                     style="width: 400px; height : 400px; border-radius: 200px" class="img-fluid" alt=""
+                 style="width: 400px; height : 400px; border-radius: 200px" class="img-fluid personal-avatar" alt=""
                      data-aos="zoom-out" data-aos-delay="100">
              </div>
          </div>

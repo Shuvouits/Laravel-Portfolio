@@ -27,6 +27,8 @@ Route::get('/download-cv', [HomeController::class, 'Download']);
 
 //Route::any('/*', [HomeController::class, 'NotFound']);
 
+//Route::get('*/', [HomeController::class, 'NotFound']);
+
 
 Route::fallback([HomeController::class, 'NotFound']);
 

@@ -9,7 +9,7 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#technology">Technology</a></li>
           <li><a href="#portfolio">Portfolio</a></li>

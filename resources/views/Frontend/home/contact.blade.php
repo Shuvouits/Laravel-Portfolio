@@ -30,7 +30,7 @@
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
                             <h4>Email:</h4>
-                            <p>shuvobhowmik_cse11uits@yahoo.com</p>
+                            <p class="shuvo-email">shuvobhowmik_cse11uits@yahoo.com</p>
                         </div>
                     </div><!-- End Info Item -->
 

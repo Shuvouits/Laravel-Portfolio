@@ -387,7 +387,8 @@ class AdminController extends Controller
             'stack_id' => $request->stack_id,
             'name' => $request->name,
             'avatar' => $avatar,
-            'title' => $request->title
+            'title' => $request->title,
+            'link' => $request->link
         ]);
 
         return redirect()->back()->with('message', [
@@ -421,7 +422,8 @@ class AdminController extends Controller
                 'title' => $request->title,
                 'name' => $request->name,
                 'avatar' => $avatar,
-                'stack_id' => $request->stack_id
+                'stack_id' => $request->stack_id,
+                'link' => $request->link
             ]);
 
 
@@ -429,7 +431,8 @@ class AdminController extends Controller
             Product::findOrFail($id)->update([
                 'title' => $request->title,
                 'name' => $request->name,
-                'stack_id' => $request->stack_id
+                'stack_id' => $request->stack_id,
+                'link' => $request->link
             ]);
         }
 

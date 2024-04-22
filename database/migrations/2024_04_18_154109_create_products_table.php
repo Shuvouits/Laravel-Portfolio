@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('avatar');
             $table->unsignedBigInteger('stack_id');
+            $table->string('link')->nullable();
             $table->foreign('stack_id')->references('id')->on('stacks')->onDelete('cascade');
             $table->timestamps();
         });

@@ -66,6 +66,13 @@
                                     <br>
 
                                     <div class="col-12">
+                                        <label for="link" class="form-label">Product Link</label>
+                                        <input type="text" class="form-control"  name="link" id="link"
+                                            placeholder="Product Link">
+                                    </div>
+                                    <br>
+
+                                    <div class="col-12">
                                         <label for="avatar"
                                             class="form-label">Avatar</label>
                                             <input type="file" class="form-control" id="avatar" name="avatar">
@@ -121,7 +128,8 @@
                                         <img class="avatarPreview" src="{{asset('upload/' .$item->avatar)}}"  width="80" height="80"/>
                                     </td>
                                     <td>{{$item->name}}</td>
-                                    <td>{{$item->title}}</td>
+                                    
+                                    <td>{{ \Illuminate\Support\Str::limit($item->title, 50) }} </td>
                                     <td>{{$item->stack->name}}</td>
                                     
                                     
@@ -206,6 +214,13 @@
                                                         <textarea class="form-control" name="title" id="description" placeholder="Title ..." rows="3">
                                                             {{$item->title}}
                                                         </textarea>
+                                                    </div>
+                                                    <br>
+
+                                                    <div class="col-12">
+                                                        <label for="link" class="form-label">Product Link</label>
+                                                        <input type="text" class="form-control" value="{{$item->link}}" name="link" id="link"
+                                                            placeholder="Product Link">
                                                     </div>
                                                     <br>
                 

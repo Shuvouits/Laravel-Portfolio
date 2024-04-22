@@ -91,7 +91,7 @@
 
                             @foreach ($data as $index => $item)
                                 <tr>
-                                    <td>Sl</td>
+                                    <td>{{$index+1}}</td>
                                     <td>{{ $item->name }}</td>
                                     
                                     <td>

@@ -43,7 +43,7 @@
                             </a>
 
                             <div class="portfolio-info">
-                                <h4><a href="/project-screenview/{{$data->id}}" title="More Details">{{$data->name}}</a></h4>
+                                <h4><a href="{{$data->link}}" target="_blank" title="More Details">{{$data->name}}</a></h4>
                                 <p style="text-transform: capitalize">{{$data->title}}</p>
                             </div>
 
